@@ -1,3 +1,5 @@
+const projectImage = (fileName) => `${import.meta.env.BASE_URL}projects/${fileName}`
+
 export const filterCategories = ['All', 'React', 'MERN', 'PHP', 'Full Stack', 'Arduino', 'Other']
 
 export const projects = [
@@ -10,7 +12,7 @@ export const projects = [
     category: 'MERN',
     github: 'https://github.com/ItsMeChrxtn/CiviCare',
     demo: 'https://civi-care.vercel.app',
-    image: '/projects/civicare.jpg',
+    image: projectImage('civicare.jpg'),
     features: [
       'Real-time incident reporting and notifications via Socket.io',
       'Role-based portals for residents, officials, and administrators',
@@ -26,7 +28,7 @@ export const projects = [
     category: 'MERN',
     github: 'https://github.com/ItsMeChrxtn/DCS-PathToTech',
     demo: 'https://client-eta-two-33.vercel.app',
-    image: '/projects/pathtotech.jpg',
+    image: projectImage('pathtotech.jpg'),
     features: [
       'Readiness scoring dashboard with skill-gap analysis',
       'GMM clustering and ECLAT-based recommendation engine',
@@ -42,7 +44,7 @@ export const projects = [
     category: 'MERN',
     github: 'https://github.com/ItsMeChrxtn/Profetas-Web',
     demo: 'https://profetas-web.vercel.app',
-    image: '/projects/profetas-web.jpg',
+    image: projectImage('profetas-web.jpg'),
     features: [
       'Retail shop and wholesale inquiry flows for farm produce',
       'Order tracking and a loyalty program for repeat customers',
@@ -58,7 +60,7 @@ export const projects = [
     category: 'PHP',
     github: 'https://github.com/ItsMeChrxtn/Disaster-Management-System',
     demo: '#',
-    image: '/projects/disaster-map.svg',
+    image: projectImage('disaster-map.svg'),
     visual: { icon: 'hazard', label: 'Hazard Alert System' },
     features: [
       'Public Leaflet hazard map with resident and staff authentication',
@@ -75,7 +77,7 @@ export const projects = [
     category: 'PHP',
     github: 'https://github.com/ItsMeChrxtn/Price-Market',
     demo: '#',
-    image: '/projects/public-market-management-system.svg',
+    image: projectImage('public-market-management-system.svg'),
     visual: { icon: 'market', label: 'Market Operations' },
     features: [
       'Separate admin and vendor dashboards',
@@ -92,7 +94,7 @@ export const projects = [
     category: 'PHP',
     github: 'https://github.com/ItsMeChrxtn/PhilFirst',
     demo: '#',
-    image: '/projects/philfirst.svg',
+    image: projectImage('philfirst.svg'),
     visual: { icon: 'jobs', label: 'HR Services Portal' },
     features: [
       'Public job listings with an online application portal',
@@ -109,7 +111,7 @@ export const projects = [
     category: 'Full Stack',
     github: 'https://github.com/ItsMeChrxtn/occ-services-portal',
     demo: '#',
-    image: '/projects/occ-services-portal.svg',
+    image: projectImage('occ-services-portal.svg'),
     visual: { icon: 'face', label: 'Identity Verification' },
     features: [
       'Facial recognition verification using face-api.js and TensorFlow.js',
@@ -126,7 +128,7 @@ export const projects = [
     category: 'Full Stack',
     github: 'https://github.com/ItsMeChrxtn/League-Websites',
     demo: '#',
-    image: '/projects/league-websites.svg',
+    image: projectImage('league-websites.svg'),
     visual: { icon: 'league', label: 'League Management' },
     features: [
       'Team standings, game schedule, and best-player pages',
@@ -143,7 +145,7 @@ export const projects = [
     category: 'React',
     github: 'https://github.com/ItsMeChrxtn/Portfolio',
     demo: '#',
-    image: '/projects/personal-portfolio-v1.svg',
+    image: projectImage('personal-portfolio-v1.svg'),
     visual: { icon: 'portfolio', label: 'Developer Portfolio' },
     features: [
       'Component-based UI built with React and Vite',
@@ -160,7 +162,7 @@ export const projects = [
     category: 'Arduino',
     github: 'https://github.com/ItsMeChrxtn/tidemonitoringsystem',
     demo: '#',
-    image: '/projects/tide-storm-monitoring-system.svg',
+    image: projectImage('tide-storm-monitoring-system.svg'),
     visual: { icon: 'tide', label: 'Coastal Monitoring' },
     features: [
       'Ultrasonic tide-level and anemometer wind-speed sensing',
@@ -177,7 +179,7 @@ export const projects = [
     category: 'Arduino',
     github: 'https://github.com/ItsMeChrxtn/medicinesort',
     demo: '#',
-    image: '/projects/automated-medicine-sorter.svg',
+    image: projectImage('automated-medicine-sorter.svg'),
     visual: { icon: 'medicine', label: 'Medicine Sorting' },
     features: [
       'TCS34725 color sensor for pill color classification',
@@ -194,7 +196,7 @@ export const projects = [
     category: 'Arduino',
     github: 'https://github.com/ItsMeChrxtn/panghabi',
     demo: '#',
-    image: '/projects/panghabi.svg',
+    image: projectImage('panghabi.svg'),
     visual: { icon: 'display', label: 'Pattern Display' },
     features: [
       'TFT touchscreen cycling through stored weave patterns',
@@ -211,7 +213,7 @@ export const projects = [
     category: 'Arduino',
     github: 'https://github.com/ItsMeChrxtn/myler_cutter',
     demo: '#',
-    image: '/projects/myler-cutter.svg',
+    image: projectImage('myler-cutter.svg'),
     visual: { icon: 'cutter', label: 'Mylar Cutting' },
     features: [
       'Keypad-programmable feed length and cut cycles',
@@ -228,7 +230,7 @@ export const projects = [
     category: 'Arduino',
     github: 'https://github.com/ItsMeChrxtn/ilaw',
     demo: '#',
-    image: '/projects/ilaw.svg',
+    image: projectImage('ilaw.svg'),
     visual: { icon: 'lighting', label: 'Lighting Control' },
     features: [
       'Dual ultrasonic sensors for distance-based presence detection',
@@ -245,7 +247,7 @@ export const projects = [
     category: 'Arduino',
     github: 'https://github.com/ItsMeChrxtn/canvas_cutter',
     demo: '#',
-    image: '/projects/canvas-cutter.svg',
+    image: projectImage('canvas-cutter.svg'),
     visual: { icon: 'cutter', label: 'Canvas Cutting' },
     features: [
       'Keypad-controlled feed and cut dimensions',
@@ -262,7 +264,7 @@ export const projects = [
     category: 'Arduino',
     github: 'https://github.com/ItsMeChrxtn/steel_cabinet',
     demo: '#',
-    image: '/projects/steel-cabinet.svg',
+    image: projectImage('steel-cabinet.svg'),
     visual: { icon: 'security', label: 'Cabinet Access Control' },
     features: [
       'Fingerprint and keypad dual-factor access control',
@@ -279,7 +281,7 @@ export const projects = [
     category: 'Other',
     github: 'https://github.com/ItsMeChrxtn/Barcode-Project',
     demo: '#',
-    image: '/projects/borrow-return-tool-system.svg',
+    image: projectImage('borrow-return-tool-system.svg'),
     visual: { icon: 'barcode', label: 'Tool Kiosk System' },
     features: [
       'Barcode scanner-based borrow and return workflow',

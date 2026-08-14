@@ -1,16 +1,38 @@
-# React + Vite
+# Christian Lloyd Del Rosario Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio built with React, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Local Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Build
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+```
 
-## Expanding the ESLint configuration
+## GitHub Pages Deployment
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project is ready for GitHub Pages through the workflow in `.github/workflows/deploy.yml`.
+
+1. Push this project to a GitHub repository.
+2. Go to the repository's `Settings` -> `Pages`.
+3. Under `Build and deployment`, set `Source` to `GitHub Actions`.
+4. Push to the `main` or `master` branch.
+5. Open the repository's `Actions` tab and wait for `Deploy Portfolio to GitHub Pages` to finish.
+
+After deployment, the portfolio will be available at:
+
+```text
+https://<your-github-username>.github.io/<repository-name>/
+```
+
+For example, if the repository is `my-portfolio` under `ItsMeChrxtn`, the link will be:
+
+```text
+https://ItsMeChrxtn.github.io/my-portfolio/
+```

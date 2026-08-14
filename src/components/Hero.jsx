@@ -51,7 +51,7 @@ function Hero() {
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               download
               className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/90 px-6 py-3 text-sm font-semibold text-text shadow-sm shadow-black/5 transition-colors duration-200 hover:border-accent hover:text-accent"
             >
