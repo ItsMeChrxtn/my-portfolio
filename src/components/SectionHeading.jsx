@@ -1,19 +1,48 @@
 import Reveal from './Reveal'
 
-function SectionHeading({ eyebrow, title, subtitle, align = 'center' }) {
-  const alignment = align === 'center' ? 'items-center text-center mx-auto' : 'items-start text-left'
+/**
+ * Section header: ghosted round number, a mono code-comment eyebrow, and the
+ * title set in condensed display caps under a red rail.
+ */
+function SectionHeading({ index, eyebrow, title, subtitle, align = 'left' }) {
+  const isCenter = align === 'center'
 
   return (
-    <Reveal className={`flex max-w-3xl flex-col gap-4 ${alignment} mb-14 sm:mb-16`}>
-      {eyebrow && (
-        <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent shadow-sm shadow-black/5 backdrop-blur">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent-3" aria-hidden="true" />
+    <div className="relative mb-14 sm:mb-16">
+      <span
+        aria-hidden="true"
+        className={`watermark pointer-events-none absolute -top-10 select-none ${
+          isCenter ? 'left-1/2 -translate-x-1/2' : '-left-3'
+        }`}
+      >
+        {index}
+      </span>
+
+      <Reveal
+        className={`relative flex max-w-3xl flex-col gap-4 ${
+          isCenter ? 'mx-auto items-center text-center' : 'items-start'
+        }`}
+      >
+        <span className="stencil flex items-center gap-3 text-[0.7rem] font-medium text-accent-ink">
+          <span className="h-px w-8 bg-accent" aria-hidden="true" />
+          <span className="text-faint">{'//'}</span>
           {eyebrow}
         </span>
-      )}
-      <h2 className="text-balance text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl">{title}</h2>
-      {subtitle && <p className="max-w-2xl text-base leading-relaxed text-text-muted sm:text-lg">{subtitle}</p>}
-    </Reveal>
+
+        <h2 className="font-display text-balance text-4xl text-text sm:text-5xl lg:text-6xl">
+          {title}
+        </h2>
+
+        <span
+          aria-hidden="true"
+          className={`block h-1 w-20 bg-accent ${isCenter ? 'mx-auto' : ''}`}
+        />
+
+        {subtitle && (
+          <p className="max-w-2xl text-base leading-relaxed text-muted">{subtitle}</p>
+        )}
+      </Reveal>
+    </div>
   )
 }
 
