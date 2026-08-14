@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 384 288" role="img" aria-labelledby="title desc">
+  <title id="title">Panghabi Display</title>
+  <desc id="desc">loom pattern guide</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9333ea"/>
+      <stop offset="1" stop-color="#ca8a04"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0v28" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="384" height="288" rx="0" fill="url(#bg)"/>
+  <rect width="384" height="288" fill="url(#grid)"/>
+  <circle cx="324" cy="40" r="70" fill="#fff" opacity=".12"/>
+  <circle cx="56" cy="248" r="96" fill="#fff" opacity=".1"/>
+  
+      <rect x="82" y="74" width="224" height="164" rx="22" fill="#fff" opacity=".92"/>
+      <path d="M122 94v124M162 94v124M202 94v124M242 94v124M282 94v124M102 114h184M102 154h184M102 194h184" stroke="#9333ea" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M102 114c40 40 104 40 184 0M102 194c40-40 104-40 184 0" stroke="#ca8a04" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+  <rect x="28" y="228" width="328" height="40" rx="20" fill="#0f172a" opacity=".52"/>
+  <text x="48" y="249" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Panghabi Display</text>
+  <text x="48" y="264" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600" fill="#fff" opacity=".76">loom pattern guide</text>
+</svg>
