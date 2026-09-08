@@ -60,12 +60,14 @@ function App() {
   }[tab]
 
   return (
-    <>
+    // A column that is at least the viewport tall, so a short tab does not
+    // leave the footer stranded halfway up the page.
+    <div className="flex min-h-screen flex-col">
       <TopBar activeTab={tab} onNavigate={navigate} />
 
       <ProfileHeader activeTab={tab} onNavigate={navigate} />
 
-      <main className="mx-auto max-w-[1100px] px-4 py-4">
+      <main className="mx-auto w-full max-w-[1100px] flex-1 px-4 py-4">
         {isFeed ? (
           // grid-cols-1 rather than the implicit track: an auto track floors at
           // min-content and lets a wide post push past the page padding.
@@ -84,7 +86,7 @@ function App() {
       </main>
 
       <Footer onNavigate={navigate} />
-    </>
+    </div>
   )
 }
 

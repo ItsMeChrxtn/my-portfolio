@@ -134,10 +134,13 @@ function PostCard({ post, isLiked, onToggleLike, onNavigate }) {
         <button
           type="button"
           onClick={() => onNavigate('projects', `project-${project.id}`)}
-          className="block w-full"
+          className="group block w-full overflow-hidden border-y border-line-soft"
           aria-label={`Open ${project.title} in the Projects tab`}
         >
-          <ProjectVisual project={project} className="aspect-[16/9] w-full border-y border-line-soft" />
+          <ProjectVisual
+            project={project}
+            className="aspect-[16/9] w-full transition-transform duration-500 group-hover:scale-[1.03]"
+          />
         </button>
       )}
 
@@ -179,17 +182,25 @@ function PostCard({ post, isLiked, onToggleLike, onNavigate }) {
           <span>Be the first to react</span>
         )}
 
-        <span className="flex items-center gap-3">
+        <span className="flex items-center gap-2.5">
           {tags.length > 0 && (
-            <span className="flex items-center gap-1">
-              {tags.slice(0, 5).map((tag) => (
-                <span
-                  key={tag}
-                  className="h-2 w-2 rounded-full"
-                  style={{ background: techColor(tag) }}
-                  title={tag}
-                />
-              ))}
+            <span className="flex items-center gap-1.5">
+              {/* A language bar, the way a repo summarises its stack. */}
+              <span className="flex h-1.5 w-14 overflow-hidden rounded-full" aria-hidden="true">
+                {tags.slice(0, 5).map((tag) => (
+                  <span
+                    key={tag}
+                    className="h-full flex-1"
+                    style={{ background: techColor(tag) }}
+                  />
+                ))}
+              </span>
+              {tags.length} tech
+            </span>
+          )}
+          {bullets.length > 0 && tags.length > 0 && (
+            <span className="text-line" aria-hidden="true">
+              ·
             </span>
           )}
           {bullets.length > 0 && (

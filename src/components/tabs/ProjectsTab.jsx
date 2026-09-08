@@ -13,9 +13,14 @@ function ProjectTile({ project }) {
   return (
     <article
       id={`project-${project.id}`}
-      className="card flex scroll-mt-24 flex-col overflow-hidden"
+      className="card lift group flex scroll-mt-24 flex-col overflow-hidden"
     >
-      <ProjectVisual project={project} className="aspect-[16/10] w-full" />
+      <div className="overflow-hidden">
+        <ProjectVisual
+          project={project}
+          className="aspect-[16/10] w-full transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
 
       <div className="flex flex-1 flex-col p-4">
         <div className="flex items-start justify-between gap-2">

@@ -20,16 +20,29 @@ function ProfileHeader({ activeTab, onNavigate }) {
     <div className="bg-panel shadow-card">
       {/* Cover */}
       <div className="mx-auto max-w-[1100px] px-0 sm:px-4">
-        <div className="cover relative h-[10rem] overflow-hidden sm:h-[15rem] sm:rounded-b-lg lg:h-[21rem]">
-          <div className="cover-grid absolute inset-0 opacity-60" aria-hidden="true" />
+        <div className="cover relative h-[9rem] overflow-hidden sm:h-[13rem] sm:rounded-b-lg lg:h-[17rem]">
+          <div className="cover-grid absolute inset-0 opacity-50" aria-hidden="true" />
+          <div className="cover-grain absolute inset-0 opacity-[0.16]" aria-hidden="true" />
+          <div className="cover-sheen absolute inset-0" aria-hidden="true" />
           <div
-            className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/25"
+            className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30"
             aria-hidden="true"
           />
 
+          {/* Oversized monogram, ghosted into the cover the way a banner mark sits. */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-4 -bottom-10 hidden text-[11rem] leading-none font-extrabold tracking-tighter text-white/[0.07] select-none sm:block lg:-bottom-16 lg:text-[15rem]"
+          >
+            {profile.initials}
+          </span>
+
           {/* Top-left, clear of the avatar that overlaps the bottom-left corner. */}
-          <p className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-black/35 px-3 py-1.5 text-sm font-semibold text-white backdrop-blur-sm sm:top-5 sm:left-6">
-            <span className="h-2 w-2 rounded-full bg-green" aria-hidden="true" />
+          <p className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-black/35 px-3 py-1.5 text-[0.8125rem] font-semibold text-white ring-1 ring-white/15 backdrop-blur-sm sm:top-5 sm:left-6 sm:text-sm">
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green" />
+            </span>
             Open to freelance work and full-time roles
           </p>
 
@@ -56,12 +69,12 @@ function ProfileHeader({ activeTab, onNavigate }) {
           {/* w-full matters: the column container centres its children, which
               otherwise shrink to their content width and overflow on mobile. */}
           <div className="w-full flex-1 pb-1 text-center lg:w-auto lg:pb-3 lg:text-left">
-            <h1 className="flex items-center justify-center gap-2 text-[1.75rem] leading-tight font-extrabold tracking-tight text-text lg:justify-start lg:text-[2rem]">
+            <h1 className="flex items-center justify-center gap-2 text-[1.75rem] leading-[1.15] font-extrabold tracking-[-0.02em] text-text lg:justify-start lg:text-[2.125rem]">
               {profile.name}
               <VerifiedBadge className="h-5 w-5" />
             </h1>
 
-            <p className="mt-1 font-semibold text-muted">{profile.headline}</p>
+            <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{profile.headline}</p>
 
             <ul className="mt-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-muted lg:justify-start">
               {quickStats.map(({ label, value, tab }, index) => (

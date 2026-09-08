@@ -1,5 +1,5 @@
 import { skillCategories } from '../data/skills'
-import { techGradient } from '../data/techColors'
+import { techAbbr, techGradient } from '../data/techColors'
 import Card from './Card'
 
 const allSkills = skillCategories.flatMap((category) =>
@@ -40,7 +40,7 @@ function StackCard({ onNavigate }) {
                 style={{ background: techGradient(skill) }}
                 aria-hidden="true"
               >
-                {skill.slice(0, 2).toUpperCase()}
+                {techAbbr(skill)}
               </span>
               <span className="mt-1 block truncate text-xs font-medium text-text">{skill}</span>
             </button>

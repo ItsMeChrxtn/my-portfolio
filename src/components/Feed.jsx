@@ -4,6 +4,7 @@ import { feed, initialFeedSize } from '../data/feed'
 import { profile } from '../data/profile'
 import { useReactions } from '../hooks/useReactions'
 import Avatar from './Avatar'
+import FeaturedStrip from './FeaturedStrip'
 import PostCard from './PostCard'
 
 /** The "what's on your mind" composer, re-cast as a hire-me prompt. */
@@ -59,6 +60,7 @@ function Feed({ onNavigate }) {
 
   return (
     <div className="flex flex-col gap-4">
+      <FeaturedStrip onNavigate={onNavigate} />
       <Composer />
 
       {shown.map((post) => (

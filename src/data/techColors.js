@@ -63,8 +63,52 @@ const palette = {
 
 const fallback = '#6b7280'
 
+/**
+ * Two-character tile codes. Slicing the name instead collides — Git and GitHub
+ * both come out as "GI" — so the ambiguous ones are spelled out here.
+ */
+const abbreviations = {
+  HTML: 'HT',
+  CSS: 'CS',
+  JavaScript: 'JS',
+  TypeScript: 'TS',
+  React: 'RE',
+  'Next.js': 'NX',
+  'Tailwind CSS': 'TW',
+  Bootstrap: 'BS',
+  Vite: 'VT',
+  'Node.js': 'ND',
+  Express: 'EX',
+  'Express.js': 'EX',
+  PHP: 'PH',
+  Python: 'PY',
+  'Python (Flask)': 'FL',
+  Flask: 'FL',
+  'Socket.io': 'IO',
+  MongoDB: 'MG',
+  MySQL: 'MY',
+  SQLite: 'LT',
+  Git: 'GT',
+  GitHub: 'GH',
+  JWT: 'JW',
+  Postman: 'PM',
+  'VS Code': 'VS',
+  Vercel: 'VC',
+  Render: 'RD',
+  Railway: 'RW',
+  Hostinger: 'HO',
+  Leaflet: 'LF',
+  'React Leaflet': 'LF',
+  Arduino: 'AR',
+  'C++': 'C+',
+}
+
 export function techColor(tech) {
   return palette[tech] ?? fallback
+}
+
+export function techAbbr(tech) {
+  return abbreviations[tech] ?? tech.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase()
 }
 
 /** Two stops for a tile gradient, safe for any tech name. */

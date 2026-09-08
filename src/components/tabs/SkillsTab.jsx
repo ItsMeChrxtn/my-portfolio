@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { projects } from '../../data/projects'
 import { skillCategories } from '../../data/skills'
-import { techGradient } from '../../data/techColors'
+import { techAbbr, techGradient } from '../../data/techColors'
 import Card from '../Card'
 
 /** How many shipped projects actually use each skill — a real number, not a bar. */
@@ -43,20 +43,21 @@ function SkillsTab({ onNavigate }) {
         </p>
       </Card>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      {/* items-start so a short category does not stretch to match a long one. */}
+      <div className="grid items-start gap-4 lg:grid-cols-2">
         {skillCategories.map(({ title, icon: Icon, skills }) => (
           <Card
             key={title}
             title={title}
-            action={<span className="text-sm text-faint">{skills.length}</span>}
+            action={
+              <span className="flex items-center gap-2 text-sm text-faint">
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                {skills.length}
+              </span>
+            }
             bodyClassName="px-4 pt-3 pb-4"
           >
-            <div className="mb-3 flex items-center gap-2 text-muted">
-              <Icon className="h-4 w-4" aria-hidden="true" />
-              <span className="text-sm">{title} stack</span>
-            </div>
-
-            <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+            <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {skills.map((skill) => {
                 const used = usageFor(counts, skill)
 
@@ -77,7 +78,7 @@ function SkillsTab({ onNavigate }) {
                         style={{ background: techGradient(skill) }}
                         aria-hidden="true"
                       >
-                        {skill.slice(0, 2).toUpperCase()}
+                        {techAbbr(skill)}
                       </span>
                       <span className="min-w-0">
                         <span className="block truncate text-sm font-semibold text-text group-hover:text-brand">
