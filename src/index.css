@@ -3,72 +3,82 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ==========================================================================
-   LIGHT — the off-white tactical briefing look
+   LIGHT — the classic Facebook canvas
    ========================================================================== */
 :root {
   color-scheme: light;
 
-  --bg: #ece8e1;
-  --bg-2: #e0dbd1;
+  --bg: #f0f2f5;
   --panel: #ffffff;
-  --panel-2: #f5f2ec;
-  --line: #c8c1b5;
-  --line-soft: #ded8ce;
+  --panel-2: #f0f2f5;
+  --panel-3: #e4e6eb;
+  --line: #ced0d4;
+  --line-soft: #e4e6eb;
 
-  --text: #0f1923;
-  --muted: #4a525c;
-  --faint: #767e88;
+  --text: #050505;
+  --muted: #65676b;
+  --faint: #8a8d91;
 
-  --accent: #ff4655;
-  --accent-ink: #c4243a;
-  --accent-deep: #bd3944;
-  --teal: #066953;
-  --teal-fill: #18e4b7;
+  --brand: #1877f2;
+  --brand-hover: #166fe5;
+  --brand-soft: #e7f3ff;
+  --brand-ink: #1877f2;
 
-  --grid: rgba(15, 25, 35, 0.055);
-  --glow-a: rgba(255, 70, 85, 0.16);
-  --glow-b: rgba(6, 105, 83, 0.1);
-  --scan: 0;
+  --green: #31a24c;
+  --amber: #f7b928;
+  --rose: #f3425f;
+
+  --cover-a: #1877f2;
+  --cover-b: #0b5ed7;
+  --cover-c: #4267b2;
+
+  --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --elevation-2: 0 12px 28px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================================================
-   DARK — VALORANT navy
+   DARK — Facebook night mode
    ========================================================================== */
 .dark {
   color-scheme: dark;
 
-  --bg: #0f1923;
-  --bg-2: #0a1119;
-  --panel: #1a242e;
-  --panel-2: #141d26;
-  --line: #2b3743;
-  --line-soft: #212c37;
+  --bg: #18191a;
+  --panel: #242526;
+  --panel-2: #3a3b3c;
+  --panel-3: #4e4f50;
+  --line: #3e4042;
+  --line-soft: #303031;
 
-  --text: #ece8e1;
-  --muted: #8b98a5;
-  --faint: #5f6d7a;
+  --text: #e4e6eb;
+  --muted: #b0b3b8;
+  --faint: #8a8d91;
 
-  --accent: #ff4655;
-  --accent-ink: #ff4655;
-  --accent-deep: #bd3944;
-  --teal: #18e4b7;
-  --teal-fill: #18e4b7;
+  --brand: #2d88ff;
+  --brand-hover: #4599ff;
+  --brand-soft: #263951;
+  --brand-ink: #2d88ff;
 
-  --grid: rgba(236, 232, 225, 0.045);
-  --glow-a: rgba(255, 70, 85, 0.24);
-  --glow-b: rgba(24, 228, 183, 0.1);
-  --scan: 0.35;
+  --green: #45bd62;
+  --amber: #f7b928;
+  --rose: #f3425f;
+
+  --cover-a: #1c3a63;
+  --cover-b: #0f1b2d;
+  --cover-c: #24456f;
+
+  --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --elevation-2: 0 12px 28px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 :root {
-  --nav-h: 4.5rem;
+  --topbar-h: 3.5rem;
 }
 
 @theme inline {
   --color-bg: var(--bg);
-  --color-bg-2: var(--bg-2);
   --color-panel: var(--panel);
   --color-panel-2: var(--panel-2);
+  --color-panel-3: var(--panel-3);
   --color-line: var(--line);
   --color-line-soft: var(--line-soft);
 
@@ -76,96 +86,57 @@
   --color-muted: var(--muted);
   --color-faint: var(--faint);
 
-  --color-accent: var(--accent);
-  --color-accent-ink: var(--accent-ink);
-  --color-accent-deep: var(--accent-deep);
-  --color-teal: var(--teal);
-  --color-teal-fill: var(--teal-fill);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-ink: var(--brand-ink);
 
-  --font-display: 'Anton', 'Arial Narrow', ui-sans-serif, sans-serif;
-  --font-ui: 'Chakra Petch', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --color-green: var(--green);
+  --color-amber: var(--amber);
+  --color-rose: var(--rose);
 
-  --animate-flicker: flicker 4.5s linear infinite;
-  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-sweep: sweep 3.2s ease-in-out infinite;
-  --animate-spin-slow: spin-slow 14s linear infinite;
-  --animate-float: float 7s ease-in-out infinite;
-  --animate-float-slow: float 9s ease-in-out 1.5s infinite;
-  --animate-scan-down: scan-down 5s ease-in-out infinite;
+  --font-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --shadow-card: var(--elevation-1);
+  --shadow-pop: var(--elevation-2);
+
+  --animate-fade-up: fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop-in: pop-in 0.18s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes flicker {
-  0%,
-  93%,
-  100% {
-    opacity: 1;
-  }
-  94% {
-    opacity: 0.45;
-  }
-  96% {
-    opacity: 0.9;
-  }
-  97% {
-    opacity: 0.35;
-  }
-}
-
-@keyframes pulse-ring {
-  0% {
-    transform: scale(1);
-    opacity: 0.75;
-  }
-  75%,
-  100% {
-    transform: scale(2.4);
-    opacity: 0;
-  }
-}
-
-@keyframes sweep {
-  0% {
-    transform: translateX(-120%);
-  }
-  60%,
-  100% {
-    transform: translateX(120%);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes spin-slow {
+@keyframes fade-up {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(14px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: none;
   }
 }
 
-@keyframes scan-down {
-  0% {
-    transform: translateY(0);
+@keyframes pop-in {
+  from {
     opacity: 0;
+    transform: scale(0.96) translateY(-4px);
   }
-  10%,
-  80% {
+  to {
     opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes like-bounce {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.3) rotate(-12deg);
   }
   100% {
-    transform: translateY(100%);
-    opacity: 0;
+    transform: scale(1);
   }
 }
 
@@ -181,244 +152,205 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* Field grid + two corner glows, sitting behind everything. */
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  content: '';
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 3.5rem 3.5rem;
-  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 10%, transparent 80%);
-}
-
-body::after {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  content: '';
-  background:
-    radial-gradient(45rem 30rem at 8% -8%, var(--glow-a), transparent 68%),
-    radial-gradient(40rem 30rem at 95% 8%, var(--glow-b), transparent 70%);
-}
-
-section[id] {
-  scroll-margin-top: calc(var(--nav-h) + 1.5rem);
 }
 
 ::selection {
-  background: var(--accent);
+  background: var(--brand);
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-.text-balance {
-  text-wrap: balance;
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ==========================================================================
-   Type scale — Anton for display, Chakra Petch for tactical UI
+   Facebook surfaces
+
+   These live in the components layer on purpose: unlayered CSS outranks
+   Tailwind's utilities, so an unlayered `.chip { background }` would beat
+   `bg-brand` and an unlayered `.icon-btn { display }` would beat `lg:hidden`.
    ========================================================================== */
-.font-display {
-  font-family: var(--font-display);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 0.92;
-}
+@layer components {
+  /* The white rounded card that everything lives inside. */
+  .card {
+    background: var(--panel);
+    border-radius: 0.5rem;
+    box-shadow: var(--elevation-1);
+  }
 
-.label {
-  font-family: var(--font-ui);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-}
+  /* Grey pill button — the secondary action. */
+  .btn-soft {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: 0.375rem;
+    background: var(--panel-2);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition:
+      background-color 0.15s ease,
+      transform 0.08s ease;
+  }
 
-.stencil {
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-}
+  .btn-soft:hover {
+    background: var(--panel-3);
+  }
 
-/* ==========================================================================
-   VALORANT geometry — cut corners
-   ========================================================================== */
-.cut {
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.15rem), calc(100% - 1.15rem) 100%, 0 100%);
-}
+  .btn-soft:active {
+    transform: scale(0.97);
+  }
 
-.cut-tl {
-  clip-path: polygon(1.15rem 0, 100% 0, 100% 100%, 0 100%, 0 1.15rem);
-}
+  /* Blue primary button. */
+  .btn-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: 0.375rem;
+    background: var(--brand);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition:
+      background-color 0.15s ease,
+      transform 0.08s ease;
+  }
 
-.cut-duo {
-  clip-path: polygon(
-    1.15rem 0,
-    100% 0,
-    100% calc(100% - 1.15rem),
-    calc(100% - 1.15rem) 100%,
-    0 100%,
-    0 1.15rem
-  );
-}
+  .btn-brand:hover {
+    background: var(--brand-hover);
+  }
 
-.cut-sm {
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 0.6rem), calc(100% - 0.6rem) 100%, 0 100%);
-}
+  .btn-brand:active {
+    transform: scale(0.97);
+  }
 
-.cut-tab {
-  clip-path: polygon(0 0, 100% 0, calc(100% - 0.55rem) 100%, 0 100%);
-}
+  /* Blue text link — what makes the CV feel clickable. */
+  .link {
+    color: var(--brand-ink);
+    font-weight: 600;
+    transition: color 0.15s ease;
+  }
 
-/* 1px "border" that survives clip-path: a tinted wrapper with 1px padding. */
-.edge {
-  background: var(--line);
-  padding: 1px;
-}
+  .link:hover {
+    text-decoration: underline;
+  }
 
-.edge-accent {
-  background: linear-gradient(160deg, var(--accent), var(--line) 55%);
-  padding: 1px;
-}
+  /* Circular icon button, used across the top bar. */
+  .icon-btn {
+    display: inline-flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: var(--panel-2);
+    color: var(--text);
+    transition:
+      background-color 0.15s ease,
+      transform 0.08s ease;
+  }
 
-/* ==========================================================================
-   HUD ornaments
-   ========================================================================== */
-.hud {
-  position: relative;
-}
+  .icon-btn:hover {
+    background: var(--panel-3);
+  }
 
-/* Brackets sit on the top-right / bottom-left corners — the two that stay
-   square across every cut-corner shape. */
-.hud::before,
-.hud::after {
-  position: absolute;
-  z-index: 2;
-  width: 0.7rem;
-  height: 0.7rem;
-  pointer-events: none;
-  content: '';
-  border-color: var(--accent);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
+  .icon-btn:active {
+    transform: scale(0.94);
+  }
 
-.hud::before {
-  top: 0.35rem;
-  right: 0.35rem;
-  border-top: 2px solid;
-  border-right: 2px solid;
-}
+  /* Grey chip for skills, tech tags, and categories. */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.6875rem;
+    border-radius: 9999px;
+    background: var(--panel-2);
+    color: var(--muted);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
 
-.hud::after {
-  bottom: 0.35rem;
-  left: 0.35rem;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
-}
+  /* The profile cover gradient. */
+  .cover {
+    background:
+      radial-gradient(58rem 30rem at 12% -20%, var(--cover-c), transparent 62%),
+      radial-gradient(45rem 26rem at 88% 120%, var(--cover-a), transparent 60%),
+      linear-gradient(120deg, var(--cover-b), var(--cover-a) 55%, var(--cover-c));
+  }
 
-.hud:hover::before,
-.hud:hover::after,
-.hud-on::before,
-.hud-on::after {
-  opacity: 1;
-}
+  /* Faint dotted texture laid over the cover. */
+  .cover-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+    background-size: 1.5rem 1.5rem;
+  }
 
-/* Hazard stripes for accent rails. */
-.stripes {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    var(--accent) 0 0.35rem,
-    transparent 0.35rem 0.75rem
-  );
-}
+  /* Hides the scrollbar on the horizontal tab strip. */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-/* Scanline film, dark theme only. */
-.scanlines::after {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  content: '';
-  opacity: var(--scan);
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.25) 0 1px,
-    transparent 1px 3px
-  );
-}
-
-/* Skewed tactical button. */
-.skew {
-  transform: skewX(-12deg);
-}
-
-.skew > * {
-  display: inline-block;
-  transform: skewX(12deg);
-}
-
-/* Light sweep that runs across a button on hover. */
-.sheen {
-  position: relative;
-  overflow: hidden;
-}
-
-.sheen > .sheen-bar {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 45%;
-  pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-  transform: translateX(-140%);
-  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.sheen:hover > .sheen-bar {
-  transform: translateX(240%);
-}
-
-/* Giant ghosted section number. */
-.watermark {
-  font-family: var(--font-display);
-  font-size: clamp(7rem, 22vw, 18rem);
-  line-height: 0.75;
-  color: var(--text);
-  opacity: 0.035;
-  user-select: none;
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* ==========================================================================
    Scrollbar
    ========================================================================== */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-2);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  border: 3px solid transparent;
+  border-radius: 9999px;
+  background: var(--panel-3);
+  background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-deep);
+  background: var(--faint);
+  background-clip: content-box;
+}
+
+/* ==========================================================================
+   Print — the CV falls out as a clean document
+   ========================================================================== */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 11pt;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #d0d0d0;
+    break-inside: avoid;
+  }
 }
 
 /* ==========================================================================

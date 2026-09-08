@@ -3,8 +3,14 @@ import { useCallback, useEffect, useState } from 'react'
 const STORAGE_KEY = 'portfolio-theme'
 
 function getInitialTheme() {
-  const stored = window.localStorage.getItem(STORAGE_KEY)
-  return stored === 'light' || stored === 'dark' ? stored : 'dark'
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY)
+    if (stored === 'light' || stored === 'dark') return stored
+  } catch {
+    /* storage blocked — fall through to the system preference */
+  }
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
 export function useTheme() {
@@ -12,7 +18,11 @@ export function useTheme() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark')
-    window.localStorage.setItem(STORAGE_KEY, theme)
+    try {
+      window.localStorage.setItem(STORAGE_KEY, theme)
+    } catch {
+      /* the toggle still works for this session */
+    }
   }, [theme])
 
   const toggleTheme = useCallback(() => {
