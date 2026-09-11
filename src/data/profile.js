@@ -13,6 +13,8 @@ export const profile = {
   tagline: 'I build systems people actually use, and teach the people who will build the next ones.',
   pronouns: 'he/him',
   joined: 'Building software since 2021',
+  photo: `${import.meta.env.BASE_URL}profile.jpg`,
+  cover: `${import.meta.env.BASE_URL}cover.jpg`,
   ...contactInfo,
 }
 

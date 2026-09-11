@@ -1,11 +1,15 @@
 import { BadgeCheck } from 'lucide-react'
+import { useState } from 'react'
 import { profile } from '../data/profile'
 
 /**
- * The profile picture. There is no photo in the repo, so the initials sit on
- * a brand gradient — the same treatment a real profile uses as a fallback.
+ * The profile picture. Renders the real photo, with the initials on a brand
+ * gradient underneath so the same fallback a real profile uses shows while
+ * the image loads or if it ever fails.
  */
 function Avatar({ size = 40, fontSize, ring = false, className = '' }) {
+  const [failed, setFailed] = useState(false)
+
   // `size` takes a number of pixels or any CSS length, so the header can hand
   // it a clamp() and stay responsive — a plain number cannot do that, and an
   // inline width would override a Tailwind sizing class anyway.
@@ -28,6 +32,15 @@ function Avatar({ size = 40, fontSize, ring = false, className = '' }) {
         }}
       />
       <span className="relative tracking-tight">{profile.initials}</span>
+      {!failed && (
+        <img
+          src={profile.photo}
+          alt=""
+          draggable="false"
+          onError={() => setFailed(true)}
+          className="absolute inset-0 h-full w-full object-cover object-top"
+        />
+      )}
     </span>
   )
 }

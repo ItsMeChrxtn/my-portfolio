@@ -21,21 +21,18 @@ function ProfileHeader({ activeTab, onNavigate }) {
       {/* Cover */}
       <div className="mx-auto max-w-[1100px] px-0 sm:px-4">
         <div className="cover relative h-[9rem] overflow-hidden sm:h-[13rem] sm:rounded-b-lg lg:h-[17rem]">
-          <div className="cover-grid absolute inset-0 opacity-50" aria-hidden="true" />
-          <div className="cover-grain absolute inset-0 opacity-[0.16]" aria-hidden="true" />
-          <div className="cover-sheen absolute inset-0" aria-hidden="true" />
+          {/* The gradient mesh stays underneath as the paint-in while the photo loads. */}
+          <img
+            src={profile.cover}
+            alt=""
+            draggable="false"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+          <div className="cover-grain absolute inset-0 opacity-[0.1]" aria-hidden="true" />
           <div
-            className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30"
+            className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/40"
             aria-hidden="true"
           />
-
-          {/* Oversized monogram, ghosted into the cover the way a banner mark sits. */}
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-4 -bottom-10 hidden text-[11rem] leading-none font-extrabold tracking-tighter text-white/[0.07] select-none sm:block lg:-bottom-16 lg:text-[15rem]"
-          >
-            {profile.initials}
-          </span>
 
           {/* Top-left, clear of the avatar that overlaps the bottom-left corner. */}
           <p className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-black/35 px-3 py-1.5 text-[0.8125rem] font-semibold text-white ring-1 ring-white/15 backdrop-blur-sm sm:top-5 sm:left-6 sm:text-sm">
