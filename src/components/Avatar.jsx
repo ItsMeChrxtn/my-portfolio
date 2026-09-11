@@ -38,7 +38,7 @@ function Avatar({ size = 40, fontSize, ring = false, className = '' }) {
           alt=""
           draggable="false"
           onError={() => setFailed(true)}
-          className="absolute inset-0 h-full w-full object-cover object-top"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       )}
     </span>
