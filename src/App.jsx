@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import BackToTop from './components/BackToTop'
 import Feed from './components/Feed'
 import Footer from './components/Footer'
 import IntroCard from './components/IntroCard'
@@ -68,24 +69,29 @@ function App() {
       <ProfileHeader activeTab={tab} onNavigate={navigate} />
 
       <main className="mx-auto w-full max-w-[1100px] flex-1 px-4 py-4">
-        {isFeed ? (
-          // grid-cols-1 rather than the implicit track: an auto track floors at
-          // min-content and lets a wide post push past the page padding.
-          <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,25rem)_minmax(0,1fr)]">
-            <div className="flex flex-col gap-4 lg:sticky lg:top-[calc(var(--topbar-h)+1rem)]">
-              <IntroCard onNavigate={navigate} />
-              <PhotosCard onNavigate={navigate} />
-              <StackCard onNavigate={navigate} />
-            </div>
+        {/* Keyed on the tab so every switch re-mounts and fades the new
+            content up, instead of swapping it in with a hard cut. */}
+        <div key={tab} className="animate-fade-up">
+          {isFeed ? (
+            // grid-cols-1 rather than the implicit track: an auto track floors at
+            // min-content and lets a wide post push past the page padding.
+            <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,25rem)_minmax(0,1fr)]">
+              <div className="flex flex-col gap-4 lg:sticky lg:top-[calc(var(--topbar-h)+1rem)]">
+                <IntroCard onNavigate={navigate} />
+                <PhotosCard onNavigate={navigate} />
+                <StackCard onNavigate={navigate} />
+              </div>
 
-            {tabContent}
-          </div>
-        ) : (
-          tabContent
-        )}
+              {tabContent}
+            </div>
+          ) : (
+            tabContent
+          )}
+        </div>
       </main>
 
       <Footer onNavigate={navigate} />
+      <BackToTop />
     </div>
   )
 }

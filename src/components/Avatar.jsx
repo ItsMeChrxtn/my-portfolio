@@ -16,10 +16,10 @@ function Avatar({ size = 40, fontSize, ring = false, className = '' }) {
   const dimension = typeof size === 'number' ? `${size}px` : size
   const type = fontSize ?? (typeof size === 'number' ? `${size * 0.38}px` : '2.6rem')
 
-  return (
+  const avatar = (
     <span
       className={`relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-brand to-brand-hover font-bold text-white select-none ${
-        ring ? 'ring-[0.25rem] ring-panel' : ''
+        ring ? 'border-[3px] border-panel' : ''
       } ${className}`}
       style={{ width: dimension, height: dimension, fontSize: type }}
       aria-hidden="true"
@@ -41,6 +41,16 @@ function Avatar({ size = 40, fontSize, ring = false, className = '' }) {
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
       )}
+    </span>
+  )
+
+  if (!ring) return avatar
+
+  // Hero variant: a gradient story-ring, then a panel-coloured gap, then the
+  // photo — the panel border on the avatar itself is that gap.
+  return (
+    <span className="avatar-ring inline-flex rounded-full p-[3px] shadow-card" aria-hidden="true">
+      {avatar}
     </span>
   )
 }

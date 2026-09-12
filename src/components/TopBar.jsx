@@ -30,7 +30,7 @@ function TopBar({ activeTab, onNavigate }) {
             type="button"
             onClick={() => onNavigate('posts')}
             aria-label="Go to profile feed"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-lg font-extrabold text-white transition-transform active:scale-95"
+            className="avatar-ring flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-lg font-extrabold text-white shadow-card transition-transform hover:scale-105 active:scale-95"
           >
             {profile.initials.charAt(0)}
           </button>
@@ -51,18 +51,12 @@ function TopBar({ activeTab, onNavigate }) {
                     onClick={() => onNavigate(id)}
                     aria-current={isActive ? 'page' : undefined}
                     title={label}
-                    className={`relative flex h-12 w-[6.5rem] items-center justify-center rounded-lg transition-colors ${
-                      isActive ? 'text-brand' : 'text-muted hover:bg-panel-2'
+                    className={`tab-link relative flex h-12 w-[6.5rem] items-center justify-center rounded-lg transition-colors after:inset-x-0 after:-bottom-[0.3rem] ${
+                      isActive ? 'text-brand' : 'text-muted hover:bg-panel-2 hover:text-text'
                     }`}
                   >
                     <Icon className="h-6 w-6" aria-hidden="true" />
                     <span className="sr-only">{label}</span>
-                    {isActive && (
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-x-0 -bottom-[0.6rem] h-[3px] rounded-t bg-brand"
-                      />
-                    )}
                   </button>
                 </li>
               )

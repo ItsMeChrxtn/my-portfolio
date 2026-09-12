@@ -15,12 +15,16 @@ const quickStats = [
   { label: 'years building', value: '5+', tab: 'experience' },
 ]
 
+const nameWords = profile.name.split(' ')
+const nameTail = nameWords.pop()
+const nameHead = nameWords.join(' ')
+
 function ProfileHeader({ activeTab, onNavigate }) {
   return (
     <div className="bg-panel shadow-card">
       {/* Cover */}
       <div className="mx-auto max-w-[1100px] px-0 sm:px-4">
-        <div className="cover relative h-[9rem] overflow-hidden sm:h-[13rem] sm:rounded-b-lg lg:h-[17rem]">
+        <div className="cover relative h-[9rem] overflow-hidden sm:h-[13rem] sm:rounded-b-xl lg:h-[17rem]">
           {/* The gradient mesh stays underneath as the paint-in while the photo loads. */}
           <img
             src={profile.cover}
@@ -30,7 +34,7 @@ function ProfileHeader({ activeTab, onNavigate }) {
           />
           <div className="cover-grain absolute inset-0 opacity-[0.1]" aria-hidden="true" />
           <div
-            className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/40"
+            className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/55"
             aria-hidden="true"
           />
 
@@ -66,9 +70,14 @@ function ProfileHeader({ activeTab, onNavigate }) {
           {/* w-full matters: the column container centres its children, which
               otherwise shrink to their content width and overflow on mobile. */}
           <div className="w-full flex-1 pb-1 text-center lg:w-auto lg:pb-3 lg:text-left">
-            <h1 className="flex items-center justify-center gap-2 text-[1.75rem] leading-[1.15] font-extrabold tracking-[-0.02em] text-text lg:justify-start lg:text-[2.125rem]">
-              {profile.name}
-              <VerifiedBadge className="h-5 w-5" />
+            <h1 className="text-[1.75rem] leading-[1.15] font-extrabold tracking-[-0.02em] text-text lg:text-[2.125rem]">
+              {nameHead}{' '}
+              {/* The badge is glued to the last word, so a wrapped name never
+                  strands it alone on a line of its own. */}
+              <span className="whitespace-nowrap">
+                {nameTail}
+                <VerifiedBadge className="ml-2 inline-block h-5 w-5 align-[-0.1em]" />
+              </span>
             </h1>
 
             <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{profile.headline}</p>
@@ -84,9 +93,12 @@ function ProfileHeader({ activeTab, onNavigate }) {
                   <button
                     type="button"
                     onClick={() => onNavigate(tab)}
-                    className="font-semibold transition-colors hover:text-brand hover:underline"
+                    className="group font-semibold transition-colors hover:text-brand"
                   >
-                    {value} {label}
+                    <span className="font-bold text-text transition-colors group-hover:text-brand">
+                      {value}
+                    </span>{' '}
+                    {label}
                   </button>
                 </li>
               ))}
@@ -140,17 +152,11 @@ function ProfileHeader({ activeTab, onNavigate }) {
                     type="button"
                     onClick={() => onNavigate(id)}
                     aria-current={isActive ? 'page' : undefined}
-                    className={`relative rounded-lg px-4 py-3 text-[0.9375rem] font-semibold transition-colors ${
-                      isActive ? 'text-brand' : 'text-muted hover:bg-panel-2'
+                    className={`tab-link relative rounded-lg px-4 py-3 text-[0.9375rem] font-semibold transition-colors ${
+                      isActive ? 'text-brand' : 'text-muted hover:bg-panel-2 hover:text-text'
                     }`}
                   >
                     {label}
-                    {isActive && (
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-x-0 -bottom-1 h-[3px] rounded-t bg-brand"
-                      />
-                    )}
                   </button>
                 </li>
               )
